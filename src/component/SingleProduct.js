@@ -3,8 +3,6 @@ import React from 'react';
 /* Component */
 const SingleProduct = (props) => {
 
-  // console.log(props.products)
-
   // storing id from the params 
   const { match } = props;
   const id = match.params.id;
@@ -33,7 +31,6 @@ const SingleProduct = (props) => {
     })
   }
 
-
   return (
     <div className="container">
       <div className="row">
@@ -41,7 +38,6 @@ const SingleProduct = (props) => {
       </div>
     </div>
   );
-
 }
 
 export default SingleProduct;

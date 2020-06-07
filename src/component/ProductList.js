@@ -18,10 +18,10 @@ const ProductList = ({ products }) => {
                   <img key={product.id} src={product.img_url} alt="product" />
                 </div>
               </div>
-              <div className="price-and-add-button">
+              <div className="view-button">
                 <p key={product.id}>£{product.price.toFixed(2)}</p>
                 <Link to={`/products/${product.id}`}>
-                <button className="btn btn-primary">VIEW</button>
+                  <button className="btn btn-primary">VIEW</button>
                 </Link>
               </div>
             </div>
@@ -33,7 +33,7 @@ const ProductList = ({ products }) => {
 
   return (
     <div className="product-container container">
-       <p className="intro">Welcome to <strong>Product</strong></p>
+      <p className="intro">Welcome to <strong>PC-SALE</strong> the home of the latest PCs. Please find below our wide range of products:</p>
       <div className="row">
         {displayProduct()}
       </div>

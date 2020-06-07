@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Nav = (props) => {
+const Nav = () => {
 
   return (
     <nav>
-      <a href="#!">Products</a>
+      <a href="/products">PS</a>
 
       <div>
         <ul>
@@ -15,6 +15,10 @@ const Nav = (props) => {
 
           <Link to="/about">
             <li>About</li>
+          </Link>
+
+          <Link to="/tracking">
+            <li>Tracking Data</li>
           </Link>
 
         </ul>

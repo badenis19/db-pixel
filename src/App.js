@@ -7,69 +7,60 @@ import ProductList from './component/ProductList';
 import Nav from './component/Nav';
 import About from './component/About';
 import SingleProduct from './component/SingleProduct';
+import Tracking from './component/Tracking';
 
 const App = () => {
 
   const [products, setProducts] = useState([
     {
       id: 1,
-      name: "test",
+      name: "PC 1",
       price: 90,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     },
     {
       id: 2,
-      name: "test",
+      name: "PC 2",
       price: 90,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     },
     {
       id: 3,
-      name: "test",
-      price: 90,
+      name: "PC 3",
+      price: 900,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     },
     {
       id: 4,
-      name: "test",
-      price: 90,
+      name: "PC 4",
+      price: 930,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     },
     {
       id: 5,
-      name: "test",
-      price: 90,
+      name: "PC 5",
+      price: 490,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     },
     {
       id: 6,
-      name: "test",
-      price: 90,
+      name: "PC 6",
+      price: 690,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     },
     {
       id: 7,
-      name: "test",
+      name: "PC 7",
       price: 90,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     },
     {
       id: 8,
-      name: "test",
-      price: 90,
+      name: "PC 8",
+      price: 390,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     }
   ])
-
-
-  // const [collectionOfTimes, setcollectionOfTimes] = useState([]);
-
-  // const [startOnPage, setStartOnPage] = useState([]);
-
-  // const trackAction = () => {
-  //   var start = new Date().getTime();
-  // }
-
 
   return (
     <Router>
@@ -79,22 +70,27 @@ const App = () => {
 
         <Switch>
 
-          <Route 
+          <Route
             path="/products"
-            render={() => <ProductList products={products} /> }
+            render={() => <ProductList products={products} />}
             exact
           />
 
-          <Route 
+          <Route
             path="/about"
-            render={() => <About /> }
+            render={() => <About />}
             exact
           />
 
-          <Route 
+          <Route
             path="/products/:id"
-            render={(props) => <SingleProduct {...props} products={products} /> }
-          /> 
+            render={(props) => <SingleProduct {...props} products={products} />}
+          />
+
+          <Route
+            path="/tracking"
+            render={() => <Tracking />}
+          />
 
         </Switch>
 
