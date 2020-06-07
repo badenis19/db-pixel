@@ -2,9 +2,9 @@ import React from 'react';
 // import './App.css';
 
 /* Component */
-const ProductList = () => {
+const SingleProduct = () => {
 
-  // Array of Object where the products are stored
+  // Array of Object where the products are stored ( TO DO: store all data in the App.js)
   const products = [
     {
       id: 1,
@@ -37,8 +37,8 @@ const ProductList = () => {
       img_url: "www.test.lf"
     }
   ]
-
-  const displayProduct = () => {
+  
+  const displaySingleProduct = () => {
     if (true) {
       return products.map(product => {
         return (
@@ -55,10 +55,10 @@ const ProductList = () => {
 
   return (
     <div className="App">
-      {displayProduct()}
+      {displaySingleProduct()}
     </div>
   );
 
 }
 
-export default ProductList;
+export default SingleProduct;
