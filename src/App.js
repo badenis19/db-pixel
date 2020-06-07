@@ -1,41 +1,18 @@
 import React from 'react';
 import './App.css';
+// import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-// Array of Object where the products are stored
-const products = [
-  {
-    name: "test",
-    price: 90,
-    img_url: "www.test.lf"
-  },
-  {
-    name: "test",
-    price: 90,
-    img_url: "www.test.lf"
-  },
-  {
-    name: "test",
-    price: 90,
-    img_url: "www.test.lf"
-  },
-  {
-    name: "test",
-    price: 90,
-    img_url: "www.test.lf"
-  },
-  {
-    name: "test",
-    price: 90,
-    img_url: "www.test.lf"
+/* Component */
+import ProductList from './component/ProductList'
+
+const App = () => {
+
+    return (
+      <div>
+        
+        <ProductList />
+      </div>
+    );
   }
-]
 
-function App() {
-  return (
-    <div className="App">
-      <p>App</p>
-    </div>
-  );
-}
-
-export default App;
+  export default App;
