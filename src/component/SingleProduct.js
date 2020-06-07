@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter as useParams } from 'react-router-dom';
-// import './App.css';
 
 /* Component */
-const SingleProduct = () => {
+const SingleProduct = (props) => {
 
-let { id } = useParams();
+  console.log(props);
+
+const { match } = props;
+const id = match.params.id;
 
   // const displaySingleProduct = () => {
   //   if (true) {
@@ -22,10 +23,9 @@ let { id } = useParams();
   //   }
   // }
 
+  
   return (
     <div>
-      {/* {displaySingleProduct()} */}
-      {/* <p>Single Product</p> */}
       <p>id: {id}</p>
 
     </div>

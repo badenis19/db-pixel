@@ -1,5 +1,12 @@
-.App {
- 
+body,p,a,ul,li{
+  // font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+
+body{
+  background: #EEEEEE;
 }
 
 // NAV
@@ -36,5 +43,102 @@ nav {
   }
 }
 
-// Product 
+// PRODUCT LIST //
+.product-container {
+  margin-bottom: 10px;
 
+  .intro{
+    background: white;
+    padding: 9px;
+    margin-left: -6px;
+    margin-right: -6px;
+    margin-top: 19px;
+    border-radius: 5px;
+  }
+}
+
+.row {
+  justify-content: center;
+
+  .product {
+    max-height: 303px;
+    max-width: 285px ;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .product-card {
+    background: white;
+    box-sizing: border-box;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 9px;
+    margin: 9px;
+    overflow: hidden;
+    align-items: center;
+
+    &:hover {
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .product-name {
+  text-align: center;
+
+    p {
+      font-weight: bolder;
+    }
+  }
+
+  .product-image {
+    padding: 10px 0;
+  }
+
+  .wrapper {
+    position: relative;
+    padding-top: 80%;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .price-and-add-button {
+    min-height: 32px;
+    /*padding: 0 10px 10px;*/
+    display: flex;
+    justify-content: space-between;
+
+    p {
+      font-size: 1.2em;
+      color:  #000;
+      font-weight: bold;
+    }
+
+    button {
+      font-size: 0.8em;
+    }
+  }
+}
+
+// PAGE-HEADER
+
+.page-header {
+  text-align: center;
+}
+
+// ABOUT
+
+.intro {
+  background: white;
+  padding: 9px;
+  margin-left: -6px;
+  margin-right: -6px;
+  margin-top: 19px;
+  border-radius: 5px;
+
+}

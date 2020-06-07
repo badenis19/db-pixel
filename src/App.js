@@ -41,8 +41,28 @@ const App = () => {
       name: "test",
       price: 90,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
+    },
+    {
+      id: 6,
+      name: "test",
+      price: 90,
+      img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
+    },
+    {
+      id: 7,
+      name: "test",
+      price: 90,
+      img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
+    },
+    {
+      id: 8,
+      name: "test",
+      price: 90,
+      img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     }
   ])
+
+
   
   return (
     <Router>
@@ -66,7 +86,7 @@ const App = () => {
 
           <Route 
             path="/products/:id"
-            children={<SingleProduct />}
+            render={(props) => <SingleProduct {...props} /> }
           /> 
 
         </Switch>
