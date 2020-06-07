@@ -2,27 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-/* Component */
-import PageHeader from './PageHeader';
-
 const ProductList = ({ products }) => {
 
-  // const displayProduct = () => {
-  //   if (true) {
-  //     return products.map(product => {
-  //       return (
-  //         <div>
-  //           <p key={product.id}>{product.name}</p>
-  //           <p key={product.id}>{product.price}</p>
-  //           <img src={product.img_url} alt="product"/>
-  //         </div>
-  //       )
-  //     })
-  //   }
-  // }
-
   const displayProduct = () => {
-    if (true) {
+    if (products) {
       return products.map(product => {
         return (
           <div key={product.id} className="product col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -38,7 +21,7 @@ const ProductList = ({ products }) => {
               <div className="price-and-add-button">
                 <p key={product.id}>£{product.price.toFixed(2)}</p>
                 <Link to={`/products/${product.id}`}>
-                <p className="btn btn-primary">VIEW</p>
+                <button className="btn btn-primary">VIEW</button>
                 </Link>
               </div>
             </div>
@@ -60,7 +43,7 @@ const ProductList = ({ products }) => {
 }
 
 ProductList.propTypes = {
-  product: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
 }
 
 export default ProductList;

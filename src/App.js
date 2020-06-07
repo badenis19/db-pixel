@@ -8,7 +8,6 @@ import Nav from './component/Nav';
 import About from './component/About';
 import SingleProduct from './component/SingleProduct';
 
-
 const App = () => {
 
   const [products, setProducts] = useState([
@@ -63,7 +62,15 @@ const App = () => {
   ])
 
 
-  
+  // const [collectionOfTimes, setcollectionOfTimes] = useState([]);
+
+  // const [startOnPage, setStartOnPage] = useState([]);
+
+  // const trackAction = () => {
+  //   var start = new Date().getTime();
+  // }
+
+
   return (
     <Router>
       <div>
@@ -86,7 +93,7 @@ const App = () => {
 
           <Route 
             path="/products/:id"
-            render={(props) => <SingleProduct {...props} /> }
+            render={(props) => <SingleProduct {...props} products={products} /> }
           /> 
 
         </Switch>
