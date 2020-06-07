@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 /* Component */
 import ProductList from './component/ProductList';
 import Nav from './component/Nav';
 import About from './component/About';
-// import SingleProduct from './component/SingleProduct';
+import SingleProduct from './component/SingleProduct';
 
 
 const App = () => {
@@ -64,11 +64,10 @@ const App = () => {
             exact
           />
 
-          {/* <Route 
+          <Route 
             path="/products/:id"
-            // render={() => <SingleProduct /> }
             children={<SingleProduct />}
-          />  */}
+          /> 
 
         </Switch>
 

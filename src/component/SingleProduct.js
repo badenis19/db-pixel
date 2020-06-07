@@ -26,7 +26,7 @@ let { id } = useParams();
     <div>
       {/* {displaySingleProduct()} */}
       {/* <p>Single Product</p> */}
-      <p>params</p>
+      <p>id: {id}</p>
 
     </div>
   );
