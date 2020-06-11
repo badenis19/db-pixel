@@ -16,12 +16,12 @@ const Routes = ({ trackingData, setPathname, products }) => {
 
   useEffect(() => {
 
-    // console.log("*", location.pathname)
-    // setPathname(location.pathname)
+    console.log("*", location.pathname)
+    setPathname(location.pathname)
 
     let data = {
       path: location.pathname,
-      time_on_page: "00:00"
+      TimeOnPage: "00:00"
     }
 
     
@@ -54,7 +54,7 @@ const Routes = ({ trackingData, setPathname, products }) => {
 
         <Route
           path="/tracking"
-          render={() => <Tracking />}
+          render={() => <Tracking trackingData={trackingData} />}
         />
 
       </Switch>

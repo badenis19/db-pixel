@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 /* Component */
 import Nav from './component/Nav';
@@ -67,35 +67,6 @@ const App = () => {
     const localData = localStorage.getItem('TrackingData');
     return localData ? JSON.parse(localData) : [];
   });
-
-  // const getTimeStamp = () => {
-  //   return new Date().getTime();
-  // }
-
-  // let start_var = getTimeStamp(); //ref
-
-  // let startRef = useRef(start_var); // var will not change when components re-renders
-
-  // console.log("var", start_var);
-  // console.log("ref", startRef.current);
-
-  // useEffect(() => {
-  //   const start = startRef.current
-  //   console.log("::<<<")
-  //   console.log(trackingData)
-  //   return () => {
-  //     let end = getTimeStamp();
-  //     let diff = end - start;
-  //     let data = {
-  //       path: "path",
-  //       time_on_page: diff
-  //     }
-  //     trackingData.push(data)
-  //     console.log("::", end)
-  //     localStorage.setItem("TrackingData", JSON.stringify(trackingData))
-  //   }
-  // },[trackingData])
-
 
   return (
     <Router>
