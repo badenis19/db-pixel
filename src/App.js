@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.scss';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -67,48 +67,33 @@ const App = () => {
     return localData ? JSON.parse(localData) : [];
   });
 
-  // console.log(">>", trackingData)
-
-  // declaring variables
-  let start_minutes = null;
-  let start_seconds = null;
-
-  // get the minutes on page load
-  const start = () => {
-    start_minutes = new Date().getMinutes();
-    start_seconds = new Date().getSeconds();
-    return `start ${start_minutes} + ${start_seconds}`;
+ 
+  const getTimeStamp = () => {
+    return new Date().getTime();
   }
 
-  start();
+  let start_var = getTimeStamp(); //ref
 
-  // get minutes before leaving the page and works out time spent on the page
-  setTimeout(() => {
-    let minutes = new Date().getMinutes();
-    let seconds = new Date().getSeconds();
-    let diff_minutes = minutes - start_minutes;
-    let diff_seconds = seconds - start_seconds;
-    let diff = `${diff_minutes}:${diff_seconds}`;
-    // console.log(diff)
-    let data = {
-      path: "path",
-      time_on_page: diff
+  let startRef = useRef(start_var); // var will not change when components re-renders
+
+  console.log("var", start_var);
+  console.log("ref", startRef.current);
+
+  useEffect(() => {
+    const start = startRef.current
+    console.log("::<<<")
+    return () => {
+      let end = getTimeStamp();
+      let diff = end - start;
+      let data = {
+        path: "path",
+        time_on_page: diff
+      }
+      trackingData.push(data)
+      console.log("::", end)
+      localStorage.setItem("TrackingData", JSON.stringify(trackingData))
     }
-    trackingData.push(data)
-    console.log("::", trackingData)
-    return diff;
-  }, 3000)
-
-  setTimeout(useEffect(() => {
-    console.log(trackingData)
-    console.log("useEffect")
-    localStorage.setItem("TrackingData", JSON.stringify(trackingData))
-  }, [trackingData])
-    , 6000)
-
-
-  setTimeout(() => console.log("<<", trackingData)
-    , 3010)
+  },[trackingData])
 
 
   return (
