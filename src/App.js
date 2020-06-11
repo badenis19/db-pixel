@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 /* Component */
-import ProductList from './component/ProductList';
 import Nav from './component/Nav';
-import About from './component/About';
-import SingleProduct from './component/SingleProduct';
-import Tracking from './component/Tracking';
+import Routes from './component/Routes';
 
 const App = () => {
 
@@ -62,87 +59,13 @@ const App = () => {
     }
   ])
 
-  const [trackingData, setTrackingData] = useState(() => {
-    const localData = localStorage.getItem('TrackingData');
-    return localData ? JSON.parse(localData) : [];
-  });
-
-  // console.log(">>", trackingData)
-
-  // declaring variables
-  let start_minutes = null;
-  let start_seconds = null;
-
-  // get the minutes on page load
-  const start = () => {
-    start_minutes = new Date().getMinutes();
-    start_seconds = new Date().getSeconds();
-    return `start ${start_minutes} + ${start_seconds}`;
-  }
-
-  start();
-
-  // get minutes before leaving the page and works out time spent on the page
-  setTimeout(() => {
-    let minutes = new Date().getMinutes();
-    let seconds = new Date().getSeconds();
-    let diff_minutes = minutes - start_minutes;
-    let diff_seconds = seconds - start_seconds;
-    let diff = `${diff_minutes}:${diff_seconds}`;
-    // console.log(diff)
-    let data = {
-      path: "path",
-      time_on_page: diff
-    }
-    trackingData.push(data)
-    console.log("::", trackingData)
-    return diff;
-  }, 3000)
-
-  setTimeout(useEffect(() => {
-    console.log(trackingData)
-    console.log("useEffect")
-    localStorage.setItem("TrackingData", JSON.stringify(trackingData))
-  }, [trackingData])
-    , 6000)
-
-
-  setTimeout(() => console.log("<<", trackingData)
-    , 3010)
-
-
   return (
     <Router>
       <div>
 
         <Nav />
-
-        <Switch>
-
-          <Route
-            path="/products"
-            render={() => <ProductList products={products} />}
-            exact
-          />
-
-          <Route
-            path="/about"
-            render={() => <About />}
-            exact
-          />
-
-          <Route
-            path="/products/:id"
-            render={(props) => <SingleProduct {...props} products={products} />}
-          />
-
-          <Route
-            path="/tracking"
-            render={() => <Tracking />}
-          />
-
-        </Switch>
-
+        <Routes products={products}  />
+       
       </div>
     </Router>
   );
