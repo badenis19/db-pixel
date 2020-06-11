@@ -8,6 +8,10 @@ import Routes from './component/Routes';
 
 const App = () => {
 
+  const setPathname = (pathname) => {
+    console.log("**", pathname)
+}
+
   const [products, setProducts] = useState([
     {
       id: 1,
@@ -59,12 +63,17 @@ const App = () => {
     }
   ])
 
+  const [trackingData, setTrackingData] = useState(() => {
+    const localData = localStorage.getItem('TrackingData');
+    return localData ? JSON.parse(localData) : [];
+  });
+
   return (
     <Router>
       <div>
 
         <Nav />
-        <Routes products={products}  />
+        <Routes setPathname={setPathname} products={products} trackingData={trackingData}  />
        
       </div>
     </Router>

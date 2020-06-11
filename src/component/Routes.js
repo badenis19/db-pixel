@@ -1,5 +1,5 @@
-import React from 'react';
-import { Route, Switch } from "react-router-dom"
+import React, { useEffect } from 'react';
+import { Route, Switch, useLocation } from "react-router-dom"
 
 /* Component */
 import ProductList from './ProductList';
@@ -7,7 +7,25 @@ import About from './About';
 import SingleProduct from './SingleProduct';
 import Tracking from './Tracking';
 
-const Routes = ({products}) => {
+const Routes = ({ trackingData, setPathname, products }) => {
+
+  const location = useLocation()
+
+  useEffect(() => {
+
+    console.log("*", location.pathname)
+    setPathname(location.pathname)
+
+    let data = {
+      path: location.pathname,
+      TimeOnPage: "00:00"
+    }
+
+    trackingData.push(data)
+    console.log(trackingData)
+      localStorage.setItem("TrackingData", JSON.stringify(trackingData))
+    
+  }, [location])
 
   return (
     <>
@@ -32,7 +50,7 @@ const Routes = ({products}) => {
 
         <Route
           path="/tracking"
-          render={() => <Tracking />}
+          render={() => <Tracking trackingData={trackingData} />}
         />
 
       </Switch>
