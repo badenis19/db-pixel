@@ -63,10 +63,10 @@ const App = () => {
     }
   ])
 
-  // const [trackingData, setTrackingData] = useState(() => {
-  //   const localData = localStorage.getItem('TrackingData');
-  //   return localData ? JSON.parse(localData) : [];
-  // });
+  const [trackingData, setTrackingData] = useState(() => {
+    const localData = localStorage.getItem('TrackingData');
+    return localData ? JSON.parse(localData) : [];
+  });
 
   // const getTimeStamp = () => {
   //   return new Date().getTime();
@@ -102,7 +102,7 @@ const App = () => {
       <div>
 
         <Nav />
-        <Routes setPathname={setPathname} products={products}  />
+        <Routes setPathname={setPathname} products={products} trackingData={trackingData}  />
        
       </div>
     </Router>

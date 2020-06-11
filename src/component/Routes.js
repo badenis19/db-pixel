@@ -7,14 +7,29 @@ import About from './About';
 import SingleProduct from './SingleProduct';
 import Tracking from './Tracking';
 
-const Routes = ({setPathname, products}) => {
+const Routes = ({ trackingData, setPathname, products }) => {
+
+  // every time i change page it should save object (path/time spent) in local storage
+
 
   const location = useLocation()
 
-    useEffect(() => {
-        console.log("*", location.pathname)
-        setPathname(location.pathname)
-    },[location])
+  useEffect(() => {
+
+    // console.log("*", location.pathname)
+    // setPathname(location.pathname)
+
+    let data = {
+      path: location.pathname,
+      time_on_page: "00:00"
+    }
+
+    
+    trackingData.push(data)
+    console.log(trackingData)
+      localStorage.setItem("TrackingData", JSON.stringify(trackingData))
+    
+  }, [location])
 
   return (
     <>
