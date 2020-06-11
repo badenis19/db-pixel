@@ -9,9 +9,6 @@ import Tracking from './Tracking';
 
 const Routes = ({ trackingData, setPathname, products }) => {
 
-  // every time i change page it should save object (path/time spent) in local storage
-
-
   const location = useLocation()
 
   useEffect(() => {
@@ -24,7 +21,6 @@ const Routes = ({ trackingData, setPathname, products }) => {
       TimeOnPage: "00:00"
     }
 
-    
     trackingData.push(data)
     console.log(trackingData)
       localStorage.setItem("TrackingData", JSON.stringify(trackingData))
