@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import './App.scss';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 /* Component */
-import ProductList from './component/ProductList';
 import Nav from './component/Nav';
-import About from './component/About';
-import SingleProduct from './component/SingleProduct';
-import Tracking from './component/Tracking';
+import Routes from './component/Routes';
 
 const App = () => {
 
@@ -62,72 +59,13 @@ const App = () => {
     }
   ])
 
-  const [trackingData, setTrackingData] = useState(() => {
-    const localData = localStorage.getItem('TrackingData');
-    return localData ? JSON.parse(localData) : [];
-  });
-
- 
-  const getTimeStamp = () => {
-    return new Date().getTime();
-  }
-
-  let start_var = getTimeStamp(); //ref
-
-  let startRef = useRef(start_var); // var will not change when components re-renders
-
-  console.log("var", start_var);
-  console.log("ref", startRef.current);
-
-  useEffect(() => {
-    const start = startRef.current
-    console.log("::<<<")
-    return () => {
-      let end = getTimeStamp();
-      let diff = end - start;
-      let data = {
-        path: "path",
-        time_on_page: diff
-      }
-      trackingData.push(data)
-      console.log("::", end)
-      localStorage.setItem("TrackingData", JSON.stringify(trackingData))
-    }
-  },[trackingData])
-
-
   return (
     <Router>
       <div>
 
         <Nav />
-
-        <Switch>
-
-          <Route
-            path="/products"
-            render={() => <ProductList products={products} />}
-            exact
-          />
-
-          <Route
-            path="/about"
-            render={() => <About />}
-            exact
-          />
-
-          <Route
-            path="/products/:id"
-            render={(props) => <SingleProduct {...props} products={products} />}
-          />
-
-          <Route
-            path="/tracking"
-            render={() => <Tracking />}
-          />
-
-        </Switch>
-
+        <Routes products={products}  />
+       
       </div>
     </Router>
   );
