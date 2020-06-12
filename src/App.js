@@ -69,7 +69,7 @@ const App = () => {
       <div>
 
         <Nav />
-        <Routes products={products} trackingData={trackingData}  />
+        <Routes products={products} trackingData={trackingData} setTrackingData={setTrackingData}  />
        
       </div>
     </Router>

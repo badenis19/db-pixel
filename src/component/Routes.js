@@ -8,7 +8,7 @@ import About from './About';
 import SingleProduct from './SingleProduct';
 import Tracking from './Tracking';
 
-const Routes = ({ trackingData, products }) => {
+const Routes = ({ trackingData, products, setTrackingData }) => {
 
   const location = useLocation()
 
@@ -40,6 +40,12 @@ const Routes = ({ trackingData, products }) => {
     <>
       <Switch>
 
+      <Route
+          path="/"
+          render={() => <ProductList products={products} />}
+          exact
+        />
+
         <Route
           path="/products"
           render={() => <ProductList products={products} />}
@@ -59,7 +65,7 @@ const Routes = ({ trackingData, products }) => {
 
         <Route
           path="/tracking"
-          render={() => <Tracking trackingData={trackingData} />}
+          render={() => <Tracking trackingData={trackingData} setTrackingData={setTrackingData} />}
         />
 
       </Switch>

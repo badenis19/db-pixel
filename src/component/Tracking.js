@@ -1,30 +1,36 @@
 import React from 'react';
 import PageHeader from './PageHeader';
-import { useHistory } from 'react-router-dom';
 
-const Tracking = ({ trackingData }) => {
+const Tracking = ({ trackingData, setTrackingData }) => {
 
-  const history = useHistory();
+  const displayStats = () => {
+    if(trackingData.length){
+      return trackingData.map(data => {
+        return (
+          <div className="stats border text-center bg-white">
+            <p><b>Page:</b> {data.path}</p>
+            <p><b>Time spent:</b> {data.TimeOnPage}</p>
+          </div>
+        )
+      })
+    } else {
+      return (
+        <div className="stats border text-center bg-white">
+          <p>Please browse the site to generate data.</p>    
+        </div>
+      )
+    }
+  }
 
-  const handleGoBack = () => {
-    history.goBack();
+  const hanleClearData = () => {
+    setTrackingData([])
   }
 
   return (
     <div className="container">
       <PageHeader entity="Tracking" />
-      <p className="intro">Find the tracking information below:</p>
-        if(trackingData.length){
-        trackingData.map(data => {
-          return (
-            <div>
-              <p>{data.path}</p>
-              <p>{data.TimeOnPage}</p>
-            </div>
-          )
-        })
-      }
-      <button onClick={handleGoBack}>back</button>
+       {displayStats()}
+      <button className="btn btn-warning mt-3" onClick={() => hanleClearData()} >Clear Data</button>
     </div>
   )
 }
