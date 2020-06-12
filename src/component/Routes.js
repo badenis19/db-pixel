@@ -10,20 +10,17 @@ import Tracking from './Tracking';
 
 const Routes = ({ trackingData, products, setTrackingData }) => {
 
-  const location = useLocation()
-
+  const location = useLocation();
   let start_time = moment();
-  console.log("<start>", start_time._d);
 
   useEffect(() => {
-    
+
     return () => {
       let end_time = moment();
 
       let diffMin = start_time.diff(end_time, 'minutes');
       let diffSec = start_time.diff(end_time, 'seconds');
-      let diff = `${diffMin} minutes and ${diffSec.toString().replace("-","")} seconds`;
-      console.log(diff);
+      let diff = `${diffMin} minutes and ${diffSec.toString().replace("-", "")} seconds`;
 
       let data = {
         path: location.pathname,
@@ -40,7 +37,7 @@ const Routes = ({ trackingData, products, setTrackingData }) => {
     <>
       <Switch>
 
-      <Route
+        <Route
           path="/"
           render={() => <ProductList products={products} />}
           exact
