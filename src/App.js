@@ -8,10 +8,6 @@ import Routes from './component/Routes';
 
 const App = () => {
 
-  const setPathname = (pathname) => {
-    console.log("**", pathname)
-}
-
   const [products, setProducts] = useState([
     {
       id: 1,
@@ -73,7 +69,7 @@ const App = () => {
       <div>
 
         <Nav />
-        <Routes setPathname={setPathname} products={products} trackingData={trackingData}  />
+        <Routes products={products} trackingData={trackingData}  />
        
       </div>
     </Router>
