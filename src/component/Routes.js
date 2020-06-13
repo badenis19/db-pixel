@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route, Switch, useLocation } from "react-router-dom";
 import moment from 'moment';
+import PropTypes from 'prop-types';
 
 /* Component */
 import ProductList from './ProductList';
@@ -24,14 +25,14 @@ const Routes = ({ trackingData, products, setTrackingData }) => {
 
       let data = {
         path: location.pathname,
-        TimeOnPage: diff
+        timeOnPage: diff
       }
 
       trackingData.push(data);
       localStorage.setItem("TrackingData", JSON.stringify(trackingData));
     }
 
-  }, [location])
+  }, [location, start_time, trackingData])
 
   return (
     <>
@@ -68,6 +69,12 @@ const Routes = ({ trackingData, products, setTrackingData }) => {
       </Switch>
     </>
   )
+}
+
+Routes.propTypes = {
+  trackingData: PropTypes.array,
+  products: PropTypes.array,
+  setTrackingData: PropTypes.func
 }
 
 export default Routes;

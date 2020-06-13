@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 /* Component */
 const SingleProduct = (props) => {
@@ -8,6 +9,7 @@ const SingleProduct = (props) => {
   const id = match.params.id;
 
   const displaySingleProduct = () => {
+    // eslint-disable-next-line array-callback-return
     return props.products.map((product) => {
       if (product.id.toString() === id) {
         return (
@@ -38,6 +40,10 @@ const SingleProduct = (props) => {
       </div>
     </div>
   );
+}
+
+SingleProduct.propTypes = {
+  products: PropTypes.array
 }
 
 export default SingleProduct;

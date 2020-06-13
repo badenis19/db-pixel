@@ -8,7 +8,7 @@ import Routes from './component/Routes';
 
 const App = () => {
 
-  const [products, setProducts] = useState([
+  const products = [
     {
       id: 1,
       name: "PC 1",
@@ -57,7 +57,7 @@ const App = () => {
       price: 390,
       img_url: "https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1007&q=80"
     }
-  ])
+  ]
 
   const [trackingData, setTrackingData] = useState(() => {
     const localData = localStorage.getItem('TrackingData');

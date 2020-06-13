@@ -11,8 +11,7 @@ const PageHeader = ({entity}) => {
 }
 
 PageHeader.propTypes = {
-  entity: PropTypes.string.isRequired
+  entity: PropTypes.string
 }
-
 
 export default PageHeader;
